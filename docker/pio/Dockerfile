@@ -33,7 +33,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/src
-RUN git clone -b $PIO_TAG $PIO_GIT_URL
+RUN git clone $PIO_GIT_URL
 WORKDIR /opt/src/predictionio
 RUN bash ./make-distribution.sh \
       -Dscala.version=$SCALA_VERSION \
