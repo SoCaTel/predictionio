@@ -60,6 +60,11 @@ RUN curl -o /opt/src/spark-$SPARK_VERSION.tgz \
     tar zxvf /opt/src/spark-$SPARK_VERSION.tgz && \
     echo "SPARK_HOME="`pwd`/`ls -d spark*` >> /etc/predictionio/pio-env.sh && \
     rm -rf /opt/src
+    
+WORKDIR /
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+    python get-pip.py && \
+    pip install predictionio==0.9.9
 
 WORKDIR /templates
 ADD pio_run /usr/bin/pio_run
