@@ -22,4 +22,5 @@ services:
       - 8000:8000
     volumes:
       - ./templates:/templates
+      - /home/socatel/recommendationengine/docker_out/:/soca_reco_out/
     dns: 8.8.8.8
