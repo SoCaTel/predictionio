@@ -30,7 +30,8 @@ ENV PIO_HOME=/usr/share/predictionio
 RUN apt-get update && \
     apt-get install -y dpkg-dev fakeroot && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get -y install cron
 
 WORKDIR /opt/src
 RUN git clone $PIO_GIT_URL
